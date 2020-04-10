@@ -8,5 +8,5 @@
     <string name="btnRock">Rock</string>
     <string name="btnPaper">Paper</string>
     <string name="btnScissors">Scissors</string>
-    <string name="winLose">You win!</string>
+    <string name="winLose">Who will win?!</string>
 </resources>

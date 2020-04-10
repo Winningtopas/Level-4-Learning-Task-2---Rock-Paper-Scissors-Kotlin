@@ -68,7 +68,7 @@
         android:contentDescription="@string/computerhand"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/winlose"
-        app:srcCompat="@drawable/rock" />
+        app:srcCompat="@android:drawable/alert_dark_frame" />
 
     <ImageView
         android:id="@+id/playerHand"

@@ -85,7 +85,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         if(cHand == hand)
-            winlose = "Draw"
+            winlose.text = "Draw"
+        if(cHand == "rock" && hand == "paper" || cHand == "paper" && hand == "scissors" || cHand == "scissors" && hand == "rock")
+            winlose.text = "You win!"
+        if(hand == "rock" && cHand == "paper" || hand == "paper" && cHand == "scissors" || hand == "scissors" && cHand == "rock")
+            winlose.text = "Computer wins!"
 
 
     }
