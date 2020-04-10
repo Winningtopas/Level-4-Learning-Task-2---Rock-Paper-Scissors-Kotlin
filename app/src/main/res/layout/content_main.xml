@@ -10,22 +10,23 @@
     tools:showIn="@layout/activity_main">
 
     <ImageButton
-    android:id="@+id/Rock"
-    android:layout_width="130dp"
-    android:layout_height="80dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginBottom="4dp"
-    android:layout_weight="1"
-    android:adjustViewBounds="true"
-    android:backgroundTint="#155E4B"
-    android:scaleType="fitXY"
-    android:src="@drawable/rock"
-    android:text="Rock"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/btnRock"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:backgroundTint="#155E4B"
+        android:contentDescription="TODO"
+        android:scaleType="fitXY"
+        android:src="@drawable/rock"
+        android:text="@string/btnRock"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/Paper"
+        android:id="@+id/btnPaper"
         android:layout_width="130dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
@@ -35,49 +36,52 @@
         android:backgroundTint="#155E4B"
         android:scaleType="fitXY"
         android:src="@drawable/paper"
-        android:text="Rock"
+        android:text="@string/btnPaper"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Rock" />
+        app:layout_constraintStart_toEndOf="@+id/btnRock" />
 
     <ImageButton
-        android:id="@+id/Scissors"
+        android:id="@+id/btnScissors"
         android:layout_width="110dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="4dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
         android:backgroundTint="#155E4B"
+        android:contentDescription="TODO"
         android:scaleType="fitXY"
         android:src="@drawable/scissors"
-        android:text="Rock"
+        android:text="@string/btnScissors"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Paper" />
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toEndOf="@+id/btnPaper" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/computerHand"
         android:layout_width="131dp"
         android:layout_height="118dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:background="#0E4133"
         android:backgroundTint="#0E4133"
+        android:contentDescription="@string/computerhand"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/winlose"
         app:srcCompat="@drawable/rock" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/playerHand"
         android:layout_width="131dp"
         android:layout_height="118dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="#0E4133"
         android:backgroundTint="#0E4133"
+        android:contentDescription="@string/playerhand"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/winlose"
-        app:srcCompat="@drawable/paper" />
+        app:srcCompat="@android:drawable/alert_dark_frame" />
 
     <TextView
         android:id="@+id/vs"
@@ -86,17 +90,17 @@
         android:text="V.S."
         android:textSize="30sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/computerHand"
+        app:layout_constraintEnd_toStartOf="@+id/playerHand"
+        app:layout_constraintStart_toEndOf="@+id/computerHand"
+        app:layout_constraintTop_toTopOf="@+id/computerHand" />
 
     <TextView
         android:id="@+id/winlose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="You win!"
+        android:layout_marginTop="32dp"
+        android:text="@string/winLose"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,9 +134,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="You"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/playerHand"
+        app:layout_constraintStart_toStartOf="@+id/playerHand"
+        app:layout_constraintTop_toBottomOf="@+id/playerHand" />
 
     <TextView
         android:id="@+id/computer"
@@ -140,13 +144,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Computer"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/computerHand"
+        app:layout_constraintStart_toStartOf="@+id/computerHand"
+        app:layout_constraintTop_toBottomOf="@+id/computerHand" />
 
     <View
         android:id="@+id/divider"
-        android:layout_width="wrap_content"
+        android:layout_width="1000dp"
         android:layout_height="10dp"
         android:layout_marginTop="16dp"
         android:background="#155E4B"

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.your_game_history.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
     private val productAdapter = ProductAdapter(products)
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
+    private var hand: String = "paper"
+    private var cHand: String = "rock"
+
+    private var computerHandInt: Int = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,18 +40,82 @@ class MainActivity : AppCompatActivity() {
         initViews()
     }
 
-
     private fun initViews() {
-        rvShoppingList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        rvShoppingList.adapter = productAdapter
-        rvShoppingList.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL))
+        ///////    rvShoppingList.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        ///////     rvShoppingList.adapter = productAdapter
+        ///////      rvShoppingList.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL))
+
         //createItemTouchHelper().attachToRecyclerView(rvShoppingList)
-        createItemTouchHelper().attachToRecyclerView(rvShoppingList)
+  ///////      createItemTouchHelper().attachToRecyclerView(rvShoppingList)
 
         getShoppingListFromDatabase()
 
         fab.setOnClickListener { addProduct() }
+
+        btnRock.setOnClickListener { onRockClick() }
+        btnPaper.setOnClickListener { onPaperClick() }
+        btnScissors.setOnClickListener { onScissorsClick() }
+
+        //updateUI()
     }
+
+   // private fun updateUI() {
+        //tvLastThrow.text = getString(R.string.last_throw, lastThrow)
+
+        //when (hand) {
+            //"rock" -> playerHand.setImageResource(R.drawable.rock)
+            //"paper" -> playerHand.setImageResource(R.drawable.paper)
+            //"scissors" -> playerHand.setImageResource(R.drawable.scissors)
+        //}
+    //}
+
+    private fun computer() {
+        computerHandInt = (1..3).random()
+
+        when (computerHandInt) {
+            1 -> cHand = "rock"
+            2 -> cHand = "paper"
+            3 -> cHand = "scissors"
+        }
+
+        when (cHand) {
+        "rock" -> computerHand.setImageResource(R.drawable.rock)
+        "paper" -> computerHand.setImageResource(R.drawable.paper)
+        "scissors" -> computerHand.setImageResource(R.drawable.scissors)
+        }
+
+        if(cHand == hand)
+            winlose = "Draw"
+
+
+    }
+
+
+
+    private fun onRockClick(){
+        hand = "rock"
+        Toast.makeText(this, hand + " " + cHand + computerHandInt, Toast.LENGTH_SHORT).show()
+        playerHand.setImageResource(R.drawable.rock)
+        computer()
+
+    }
+
+    private fun onPaperClick(){
+        hand = "paper"
+        Toast.makeText(this, hand, Toast.LENGTH_SHORT).show()
+        playerHand.setImageResource(R.drawable.paper)
+        computer()
+
+    }
+
+    private fun onScissorsClick(){
+        hand = "scissors"
+        Toast.makeText(this, hand, Toast.LENGTH_SHORT).show()
+        playerHand.setImageResource(R.drawable.scissors)
+        computer()
+
+    }
+
 
     private fun validateFields(): Boolean {
         return if (etProduct.text.toString().isNotBlank() && etQuantity.text.toString().isNotBlank()) {
@@ -73,7 +143,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun createItemTouchHelper(): ItemTouchHelper {
+   /* private fun createItemTouchHelper(): ItemTouchHelper {
 
         // Callback which is used to create the ItemTouch helper. Only enables left swipe.
         // Use ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) to also enable right swipe.
@@ -102,7 +172,7 @@ class MainActivity : AppCompatActivity() {
         }
         return ItemTouchHelper(callback)
     }
-
+*/
 
     private fun getShoppingListFromDatabase() {
         mainScope.launch {
