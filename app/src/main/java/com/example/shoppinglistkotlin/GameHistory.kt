@@ -51,7 +51,6 @@ class GameHistory : AppCompatActivity() {
         rvGameList.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         Collections.reverse(products)
 
-        //createItemTouchHelper().attachToRecyclerView(rvShoppingList)
         getShoppingListFromDatabase()
     }
 
