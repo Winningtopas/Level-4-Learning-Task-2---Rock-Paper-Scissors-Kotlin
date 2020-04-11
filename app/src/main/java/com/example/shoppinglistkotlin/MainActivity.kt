@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.room.TypeConverter
 
-import kotlinx.android.synthetic.main.activity_main.fab
 import kotlinx.android.synthetic.main.activity_main.toolbar
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.your_game_history.*
@@ -15,6 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private var playerHandInt: Int = 1
     private var computerHandInt: Int = 1
+    private var historyDate: String = ""
 
    // private var playerResourceID: Int = 1
    // private var computerResourceID: Int = 1
@@ -61,8 +63,6 @@ class MainActivity : AppCompatActivity() {
 
   //////      getShoppingListFromDatabase()
 
-        fab.setOnClickListener { startGameHistoryActivity() }
-
         btnRock.setOnClickListener { onRockClick() }
         btnPaper.setOnClickListener { onPaperClick() }
         btnScissors.setOnClickListener { onScissorsClick() }
@@ -82,13 +82,17 @@ class MainActivity : AppCompatActivity() {
         //}
     //}
 
+
+
     private fun addProduct(playerHandIndex: Int, computerHandIndex: Int) {
         mainScope.launch {
+            val currentTime = Calendar.getInstance().time
             val product = Product(
 
                 computerHand = computerHandIndex,
                 playerHand = playerHandIndex,
-                winner = winlose.text.toString()
+                winner = winlose.text.toString(),
+                date = currentTime
             )
 
             withContext(Dispatchers.IO) {
@@ -149,10 +153,6 @@ class MainActivity : AppCompatActivity() {
 
         playerHand.setImageResource(playerResourceID)
         computerHand.setImageResource(computerResourceID)
-
-
-
-
 
         if(cHand == hand)
             winlose.text = "Draw"

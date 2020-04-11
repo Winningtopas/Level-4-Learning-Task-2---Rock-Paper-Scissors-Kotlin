@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglistkotlin.MainActivity.Companion.PRODUCT_EXTRA
 
-import kotlinx.android.synthetic.main.activity_game_history.fab
 import kotlinx.android.synthetic.main.activity_game_history.toolbar
 import kotlinx.android.synthetic.main.content_game_history.*
 import kotlinx.coroutines.CoroutineScope
@@ -32,18 +31,13 @@ class GameHistory : AppCompatActivity() {
         setContentView(R.layout.activity_game_history)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-
         productRepository = ProductRepository(this)
         initViews()
     }
 
     private fun initViews() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "This is your profile!"
+        supportActionBar?.title = "Your Game History"
 
         val product = intent.getParcelableExtra<Product>(PRODUCT_EXTRA)
 

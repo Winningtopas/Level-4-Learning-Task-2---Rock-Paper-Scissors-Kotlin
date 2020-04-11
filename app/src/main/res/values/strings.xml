@@ -10,4 +10,5 @@
     <string name="btnScissors">Scissors</string>
     <string name="winLose">Who will win?!</string>
     <string name="title_activity_game_history">GameHistory</string>
+    <string name="date">Date</string>
 </resources>

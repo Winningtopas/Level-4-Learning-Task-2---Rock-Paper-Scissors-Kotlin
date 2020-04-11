@@ -11,7 +11,7 @@
 
     <ImageButton
         android:id="@+id/btnRock"
-        android:layout_width="130dp"
+        android:layout_width="110dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="4dp"
@@ -27,9 +27,10 @@
 
     <ImageButton
         android:id="@+id/btnPaper"
-        android:layout_width="130dp"
+        android:layout_width="110dp"
         android:layout_height="80dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
@@ -38,13 +39,13 @@
         android:src="@drawable/paper"
         android:text="@string/btnPaper"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnScissors"
         app:layout_constraintStart_toEndOf="@+id/btnRock" />
 
     <ImageButton
         android:id="@+id/btnScissors"
         android:layout_width="110dp"
         android:layout_height="80dp"
-        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
         android:layout_weight="1"
@@ -55,14 +56,12 @@
         android:src="@drawable/scissors"
         android:text="@string/btnScissors"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
-        app:layout_constraintStart_toEndOf="@+id/btnPaper" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/computerHand"
-        android:layout_width="131dp"
-        android:layout_height="118dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:background="#0E4133"
@@ -74,8 +73,8 @@
 
     <ImageView
         android:id="@+id/playerHand"
-        android:layout_width="131dp"
-        android:layout_height="118dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="#0E4133"
@@ -89,8 +88,8 @@
         android:id="@+id/vs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="V.S."
         android:textSize="30sp"
         android:textStyle="bold|italic"

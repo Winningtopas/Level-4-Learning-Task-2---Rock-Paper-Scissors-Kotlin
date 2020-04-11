@@ -25,6 +25,7 @@ class ProductAdapter(private val products: List<Product>) : RecyclerView.Adapter
             itemView.ivHistoryComputerHand.setImageResource(product.computerHand)
             itemView.ivHistoryPlayerHand.setImageResource(product.playerHand)
             itemView.tvHistoryWinLose.text = product.winner
+            itemView.tvHistoryDate.text = product.date.toString()
 
 
 
