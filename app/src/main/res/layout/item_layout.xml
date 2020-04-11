@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvHistoryWinLose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/winLose"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <ImageView
+        android:id="@+id/ivHistoryComputerHand"
+        android:layout_width="131dp"
+        android:layout_height="118dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#0E4133"
+        android:backgroundTint="#0E4133"
+        android:contentDescription="@string/computerhand"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHistoryWinLose"
+        app:srcCompat="@android:drawable/alert_dark_frame" />
+
+    <ImageView
+        android:id="@+id/ivHistoryPlayerHand"
+        android:layout_width="131dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#0E4133"
+        android:backgroundTint="#0E4133"
+        android:contentDescription="@string/playerhand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHistoryWinLose"
+        app:srcCompat="@android:drawable/alert_dark_frame" />
+
+    <TextView
+        android:id="@+id/tvHistoryVS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="V.S."
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHistoryPlayerHand"
+        app:layout_constraintEnd_toStartOf="@+id/ivHistoryPlayerHand"
+        app:layout_constraintStart_toEndOf="@+id/ivHistoryComputerHand"
+        app:layout_constraintTop_toTopOf="@+id/ivHistoryPlayerHand" />
+
+    <TextView
+        android:id="@+id/tvHistoryComputer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Computer"
+        app:layout_constraintEnd_toEndOf="@+id/ivHistoryComputerHand"
+        app:layout_constraintStart_toStartOf="@+id/ivHistoryComputerHand"
+        app:layout_constraintTop_toBottomOf="@+id/ivHistoryComputerHand" />
+
+    <TextView
+        android:id="@+id/tvHistoryYou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="You"
+        app:layout_constraintEnd_toEndOf="@+id/ivHistoryPlayerHand"
+        app:layout_constraintStart_toStartOf="@+id/ivHistoryPlayerHand"
+        app:layout_constraintTop_toBottomOf="@+id/ivHistoryPlayerHand" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

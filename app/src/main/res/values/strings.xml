@@ -9,4 +9,5 @@
     <string name="btnPaper">Paper</string>
     <string name="btnScissors">Scissors</string>
     <string name="winLose">Who will win?!</string>
+    <string name="title_activity_game_history">GameHistory</string>
 </resources>
